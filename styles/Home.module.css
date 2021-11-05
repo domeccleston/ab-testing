@@ -1,11 +1,3 @@
-/* Variables */
-:root {
-  --violet: #7928ca;
-  --grey: #696969;
-  --blue: #0070f3;
-  --font-sans: 'Inter', sans-serif;
-}
-
 .nav {
   padding: 2rem 0;
   width: 50%;
