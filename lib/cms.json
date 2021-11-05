@@ -1,0 +1,12 @@
+{
+  "A": {
+    "heroText": "Increase your productivity with dynamic new tools",
+    "btnColor": "#0070f3",
+    "imgSrc": "/office.jpeg"
+  },
+  "B": {
+    "heroText": "10x your MRR this quarter with our revolutionary product",
+    "btnColor": "#29bc9b",
+    "imgSrc": "/office-meeting.jpeg"
+  }
+}
