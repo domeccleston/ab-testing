@@ -1,21 +1,25 @@
 // import Image from 'next/image';
+import cn from 'classnames';
+import styles from '../styles/Main.module.css'
 
-import styles from '../styles/Home.module.css'
-
-export default function Main() {
+export default function Main({ heroText, imgSrc, btnColor }) {
   return (
     <>
       <main className={styles.main}>
         <div className={styles.heroTextContainer}>
           <h1 className={styles.heroText}>
-            Increase your productivity with{" "}
-            <span className={styles.highlight}>dynamic new tools</span>
+            {heroText}
           </h1>
           <h3 className={styles.heroSubtitle}>
             Get started now and start saving developer time, whilst improving
             your output by up to 500%
           </h3>
-          <button className={styles.btnPrimary}>Get started</button>
+          <button
+            className={styles.btnPrimary}
+            style={{ backgroundColor: btnColor, boxShadow: `0 4px 14px 0 ${btnColor}`}}
+          >
+            Get started
+          </button>
           <button className={styles.btnSecondary}>Contact us</button>
         </div>
         <div className={styles.heroImageContainer}>
@@ -27,7 +31,7 @@ export default function Main() {
               alt="office"
             /> */}
           <img
-            src="/office.jpeg"
+            src={imgSrc}
             alt="office"
             className={styles.heroImageUnoptimized}
           />
