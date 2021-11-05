@@ -1,17 +1,20 @@
 import Head from "../components/Head";
-import Main from '../components/Main';
+import Main from "../components/Main";
 import Nav from "../components/Nav";
 
-import styles from "../styles/Home.module.css";
-
-export default function Home() {
+export default function Home(props) {
   return (
     <>
       <Head />
-      <div className={styles.container}>
-        <Nav />
-        <Main />
-      </div>
+      <Nav />
+      <Main {...props} />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const content = await import('../lib/cms.json');
+  return {
+    props: content['A']
+  }
 }
