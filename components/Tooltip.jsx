@@ -12,11 +12,15 @@ export default function Tooltip({ variant }) {
   
   const otherVariant = variant === 'A' ? 'B' : 'A';
 
+  const clearCookie = () => {
+    Cookies.remove('landing-ab');
+  }
+
   const setVariant = async () => {
     Cookies.set('landing-ab', otherVariant);
     await fadeOut();
     router.push('/testing');
-    await sleep(300);
+    await sleep(500);
     await fadeIn();
   }
 
@@ -28,6 +32,12 @@ export default function Tooltip({ variant }) {
         onClick={setVariant}
       >
         Switch to variant {otherVariant}
+      </button>
+      <button
+        className={mainStyles.btnSecondary}
+        onClick={clearCookie}
+      >
+        Delete cookie
       </button>
     </div>
   )
