@@ -17,6 +17,7 @@ export default function Tooltip({ variant }) {
   }
 
   const setVariant = async () => {
+    clearCookie();
     Cookies.set('landing-ab', otherVariant);
     await fadeOut();
     router.push('/testing');
