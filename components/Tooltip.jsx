@@ -10,18 +10,19 @@ export default function Tooltip({ variant }) {
 
   const router = useRouter();
   
-  const otherVariant = variant === 'A' ? 'B' : 'A';
+  const otherVariant = (variant) => variant === 'A' ? 'B' : 'A';
 
   const clearCookie = () => {
     Cookies.remove('landing-ab');
   }
 
   const setVariant = async () => {
+    const cookie = Cookies.get('landing-ab');
     clearCookie();
-    Cookies.set('landing-ab', otherVariant);
+    Cookies.set('landing-ab', otherVariant(cookie));
     await fadeOut();
     router.push('/testing');
-    await sleep(500);
+    await sleep(700);
     await fadeIn();
   }
 
@@ -32,7 +33,7 @@ export default function Tooltip({ variant }) {
         className={mainStyles.btnSecondary}
         onClick={setVariant}
       >
-        Switch to variant {otherVariant}
+        Switch to variant {otherVariant(variant)}
       </button>
       <button
         className={mainStyles.btnSecondary}
