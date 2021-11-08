@@ -17,11 +17,12 @@ export default function Tooltip({ variant }) {
   }
 
   const setVariant = async () => {
+    if (typeof window === 'undefined') return;
     const cookie = Cookies.get('landing-ab');
     clearCookie();
     Cookies.set('landing-ab', otherVariant(cookie));
     await fadeOut();
-    router.push('/testing');
+    window.location.reload();
     await sleep(700);
     await fadeIn();
   }
